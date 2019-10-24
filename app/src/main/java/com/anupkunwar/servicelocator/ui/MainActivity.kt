@@ -33,4 +33,5 @@ class MainActivity : AppCompatActivity() {
         viewModel.getUserInfo(id = 1)
 
     }
+
 }

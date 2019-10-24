@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.anupkunwar.servicelocator.Result
 import com.anupkunwar.servicelocator.component.ApiService
-import com.anupkunwar.servicelocator.component.getApp
+import com.anupkunwar.servicelocator.component.getApi
 import com.anupkunwar.servicelocator.model.Person
 import com.google.gson.annotations.SerializedName
 import retrofit2.Call
@@ -12,9 +12,9 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.net.UnknownHostException
 
-class GetUserRepository(private val apiService: ApiService = getApp().apiComponent.apiService) {
+open class GetUserRepository(private val apiService: ApiService = getApi().apiService) {
 
-    fun getPerson(): LiveData<Result<Person>> {
+    open fun getPerson(): LiveData<Result<Person>> {
         val result = MutableLiveData<Result<Person>>()
         result.postValue(Result.Loading)
         apiService.getUser().enqueue(object : Callback<ResponseData> {

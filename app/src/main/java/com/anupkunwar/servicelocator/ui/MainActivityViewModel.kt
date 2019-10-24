@@ -5,12 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.anupkunwar.servicelocator.Result
-import com.anupkunwar.servicelocator.component.getApp
+import com.anupkunwar.servicelocator.component.getApi
 import com.anupkunwar.servicelocator.repo.GetUserRepository
 
 class MainActivityViewModel(
     private val userInfoRepository: GetUserRepository
-    = getApp().apiComponent.userApiComponent.userRepository
+    = getApi().userRepository
 ) :
     ViewModel() {
 

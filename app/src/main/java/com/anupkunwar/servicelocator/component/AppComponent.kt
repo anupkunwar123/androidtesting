@@ -1,8 +1,5 @@
 package com.anupkunwar.servicelocator.component
 
-import androidx.lifecycle.ViewModel
-import com.anupkunwar.servicelocator.ui.MainActivityViewModel
-
 fun getApp() = AppComponent.instance
 
 interface AppComponent {
@@ -14,17 +11,10 @@ interface AppComponent {
     }
 }
 
-open class AppComponentImpl : AppComponent {
+class AppComponentImpl(
+    override val apiComponent: ApiComponent,
     override val viewModelComponent: ViewModelComponent
-        get() {
-            val viewModels = mutableMapOf<Class<out ViewModel>, ViewModel>()
-            viewModels.put(MainActivityViewModel::class.java, MainActivityViewModel())
-            return getViewModelComponent(viewModels)
-        }
-    override val apiComponent: ApiComponent
-        get() = getApi()
-
-}
+) : AppComponent
 
 
 

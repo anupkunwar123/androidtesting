@@ -5,6 +5,10 @@ import androidx.lifecycle.Observer
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 
+/**
+ * Utility class which observes and get the data from livedata class
+ */
+
 object LiveDataTestUtil {
     @Throws(InterruptedException::class)
     fun <T> getValue(liveData: LiveData<T>, count: Int = 1): T? {
