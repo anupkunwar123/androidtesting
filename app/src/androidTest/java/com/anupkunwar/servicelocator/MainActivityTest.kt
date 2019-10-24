@@ -27,15 +27,20 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class MainActivityTest {
 
-   private  val mockUserRepository: GetUserRepository = mock()
+    private val mockUserRepository: GetUserRepository = mock()
 
     @Before
     fun initField() {
-        val viewModels = mutableMapOf<Class<out ViewModel>, ViewModel>()
+        val viewModels =
+            mutableMapOf<Class<out ViewModel>, ViewModel>()
+
         viewModels[MainActivityViewModel::class.java] =
             MainActivityViewModel(userInfoRepository = mockUserRepository)
+
         val appComponent = mock<AppComponent>()
+
         whenever(appComponent.viewModelComponent).thenReturn(ViewModelComponentImpl(viewModels))
+
         AppComponent.instance = appComponent
     }
 
