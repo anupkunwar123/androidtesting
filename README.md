@@ -1,2 +1,2 @@
 # androidtesting
-Demonstrates android testing using service locator patter
+Demonstrates android testing using service locator pattern
